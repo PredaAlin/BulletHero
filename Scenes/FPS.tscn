@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/FPS.gd" type="Script" id=1]
+
+[node name="FPS" type="ColorRect"]
+margin_right = 111.0
+margin_bottom = 58.0
+color = Color( 1, 1, 1, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fps_counter" type="Label" parent="."]
+margin_right = 68.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.533333, 0.156863, 0.156863, 1 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}

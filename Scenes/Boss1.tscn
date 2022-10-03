@@ -1,0 +1,190 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Boss.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Hurtbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 31.0161
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.3883
+
+[sub_resource type="Animation" id=5]
+resource_name = "BossHurt"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.113725, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.113725, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Sprite:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.215686, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.215686, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Sprite:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "BossMoving"
+length = 1.2
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0, -200, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 200, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Sprite:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.113725, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Sprite:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Sprite:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0.215686, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Sprite:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[node name="Boss1" type="KinematicBody2D"]
+position = Vector2( 200, 0 )
+script = ExtResource( 2 )
+
+[node name="Control" parent="." instance=ExtResource( 5 )]
+margin_left = -40.0
+margin_top = -56.0
+margin_right = -40.0
+margin_bottom = -56.0
+script = ExtResource( 3 )
+
+[node name="HealthBar" parent="Control" index="0"]
+value = 100.0
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.113725, 1, 0.215686, 1 )
+self_modulate = Color( 0.976471, 0.976471, 0.976471, 1 )
+position = Vector2( 3.8147e-06, 0 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+collision_layer = 2
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 1 )
+
+[node name="Rotator" type="Node2D" parent="."]
+position = Vector2( 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/BossHurt = SubResource( 5 )
+anims/BossMoving = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+
+[editable path="Control"]
+[editable path="Hurtbox"]
